@@ -1,0 +1,70 @@
+{
+  "course": "javascript-intermediate",
+  "language": "javascript",
+  "language_id": 63,
+  "entrypoint": "main.js",
+  "version": 1,
+  "content_hash": "fe753dc08759c544",
+  "lessons": [
+    {
+      "slug": "block-scope-and-hoisting",
+      "tests_hash": "a636dc676462"
+    },
+    {
+      "slug": "closures",
+      "tests_hash": "06c4f5dd66aa"
+    },
+    {
+      "slug": "iife-and-module-pattern",
+      "tests_hash": "5e27223cbb3f"
+    },
+    {
+      "slug": "promises",
+      "tests_hash": "31be1978081f"
+    },
+    {
+      "slug": "async-await",
+      "tests_hash": "4ccc141f8a2f"
+    },
+    {
+      "slug": "promise-patterns",
+      "tests_hash": "d2c8a3b46707"
+    },
+    {
+      "slug": "this-and-methods",
+      "tests_hash": "3d7c04c431d4"
+    },
+    {
+      "slug": "prototype-chain",
+      "tests_hash": "2c242ce5c33f"
+    },
+    {
+      "slug": "try-catch-throw",
+      "tests_hash": "736608717e90"
+    },
+    {
+      "slug": "custom-error-classes",
+      "tests_hash": "4d4133b789d1"
+    },
+    {
+      "slug": "iterators-and-generators",
+      "tests_hash": "f78ca7fe24c5"
+    },
+    {
+      "slug": "regular-expressions",
+      "tests_hash": "8af72304516e"
+    },
+    {
+      "slug": "set-map",
+      "tests_hash": "cbe6c1fdb32b"
+    },
+    {
+      "slug": "property-descriptors",
+      "tests_hash": "47190f1c062a"
+    },
+    {
+      "slug": "modules-dynamic",
+      "tests_hash": "487a8fec9e67"
+    }
+  ]
+}
