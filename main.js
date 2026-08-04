@@ -1,34 +1,16 @@
 process.stdin.on("data", chunk => {
     // reading name from standard input/output
-    const inputData = chunk.toString().trim();
+    const inputData = chunk.toString().trim().split("\n").map(item => Number(item));
 
-    // class person 
-    // + name
-    // + greet()
+    function safeDivide(a, b) {
+        try {
+            if (b === 0) throw new Error("divide by zero");
 
-    class Person {
-        constructor(name) { 
-            this.name = name;
-        }
-
-        greet() {
-            console.log(`Hi, I am ${this.name}`);
+            console.log(`RESULT ${Math.floor(a / b)}`);
+        } catch(err) {
+            console.log(`ERROR ${err.message}`)
         }
     }
 
-    // class student
-    // + study()
-
-    class Student extends Person {
-        study() {
-            console.log(`${this.name} studies`)
-        }
-    }
-
-
-    const student1 = new Student(inputData);
-
-    student1.greet()
-    student1.study()
-
+    safeDivide(inputData[0], inputData[1])
 })
