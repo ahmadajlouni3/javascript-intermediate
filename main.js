@@ -1,19 +1,24 @@
 process.stdin.on("data", chunk => {
-    const inputData = chunk.toString().trim().split("\n").map(item => Number(item));
+    // reading name from standard input/output
+    const inputData = chunk.toString().trim();
 
-    async function sumNumbers () {
-        const promises = [];
-
-        for (let item of inputData) {
-            promises.push(Promise.resolve(item));
-        }
-
-        const result = await Promise.all(promises);
-
-        const sum = result.reduce((acc, item) => acc + item, 0);
-        console.log(sum);
+    // build object that have stdin name
+    const user = {
+        name: inputData
     }
 
-    sumNumbers()
+    // function greet print this.name
+    function greet() {
+        console.log(`Hi, ${this.name}`)
+    }
+
+    // using bind
+    // const greetUser = greet.bind(user);
+    // greetUser();
+
+    // using call
+    greet.call(user);
+
+    
 
 })
