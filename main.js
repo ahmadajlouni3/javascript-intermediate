@@ -2,23 +2,33 @@ process.stdin.on("data", chunk => {
     // reading name from standard input/output
     const inputData = chunk.toString().trim();
 
-    // build object that have stdin name
-    const user = {
-        name: inputData
+    // class person 
+    // + name
+    // + greet()
+
+    class Person {
+        constructor(name) { 
+            this.name = name;
+        }
+
+        greet() {
+            console.log(`Hi, I am ${this.name}`);
+        }
     }
 
-    // function greet print this.name
-    function greet() {
-        console.log(`Hi, ${this.name}`)
+    // class student
+    // + study()
+
+    class Student extends Person {
+        study() {
+            console.log(`${this.name} studies`)
+        }
     }
 
-    // using bind
-    // const greetUser = greet.bind(user);
-    // greetUser();
 
-    // using call
-    greet.call(user);
+    const student1 = new Student(inputData);
 
-    
+    student1.greet()
+    student1.study()
 
 })
