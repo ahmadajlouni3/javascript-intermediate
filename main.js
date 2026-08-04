@@ -2,15 +2,22 @@ process.stdin.on("data", chunk => {
     // reading name from standard input/output
     const inputData = chunk.toString().trim().split("\n").map(item => Number(item));
 
-    function safeDivide(a, b) {
-        try {
-            if (b === 0) throw new Error("divide by zero");
+    class AgeError extends Error {
+        constructor(age) {
+            super(age);
+            this.name = "AgeError";
+        }
+    }
 
-            console.log(`RESULT ${Math.floor(a / b)}`);
-        } catch(err) {
+    function validateAge(n) {
+        try {
+            if( n < 0 || n > 150 ) throw new AgeError(n);
+
+            console.log(`OK ${n}`);
+        } catch (err) {
             console.log(`ERROR ${err.message}`)
         }
     }
 
-    safeDivide(inputData[0], inputData[1])
+    validateAge(inputData[0])
 })
