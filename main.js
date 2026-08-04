@@ -1,19 +1,19 @@
 process.stdin.on("data", chunk => {
     const inputData = chunk.toString().trim().split("\n").map(item => Number(item));
 
-    const promise1 = new Promise((resolve, reject) => {
-        resolve(inputData[0]);
-    })
+    async function sumNumbers () {
+        const promises = [];
 
-    const promise2 = new Promise((resolve, reject) => {
-        resolve(inputData[1]);
-    });
+        for (let item of inputData) {
+            promises.push(Promise.resolve(item));
+        }
 
+        const result = await Promise.all(promises);
 
-    async function main() {
-        const gatherNumbers = await Promise.all([promise1, promise2]);
-        const sum = gatherNumbers.reduce((acc, item) => acc + item, 0);
+        const sum = result.reduce((acc, item) => acc + item, 0);
         console.log(sum);
     }
-    main()
+
+    sumNumbers()
+
 })
