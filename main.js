@@ -2,22 +2,27 @@ process.stdin.on("data", chunk => {
     // reading name from standard input/output
     const inputData = chunk.toString().trim().split("\n").map(item => Number(item));
 
-    class AgeError extends Error {
-        constructor(age) {
-            super(age);
-            this.name = "AgeError";
+    
+
+    function* fib(n) {
+
+        let startNum = 0;
+        let lastNum = 1;
+        let nextNum = 0;
+
+        for (let i = 0; i < n; i++) {
+            yield startNum;
+
+            nextNum = startNum + lastNum;
+            startNum = lastNum;
+            lastNum = nextNum;
         }
+        
     }
 
-    function validateAge(n) {
-        try {
-            if( n < 0 || n > 150 ) throw new AgeError(n);
-
-            console.log(`OK ${n}`);
-        } catch (err) {
-            console.log(`ERROR ${err.message}`)
-        }
+    const generator = fib(inputData[0]);
+    for (let i = 0; i < inputData[0]; i++) {
+        console.log(generator.next().value)
     }
-
-    validateAge(inputData[0])
+    
 })
